@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N2N · Software com IA para empresas</title>
+<meta name="description" content="A N2N desenvolve produtos próprios de software com inteligência artificial: o N2N App, gestão e atendimento para empresas de esquadrias, e o EscalaBoa, escala de funcionários sem complicação.">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #101110; --surface: #181a18; --line: #2a2d2a;
+    --text: #f2f3f1; --muted: #a3a8a2; --accent: #5fa86e; --accent-ink: #0c140e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: Manrope, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  header { position: sticky; top: 0; background: rgba(16,17,16,.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); z-index: 5; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-weight: 800; font-size: 22px; letter-spacing: .04em; text-decoration: none; }
+  nav { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 600; }
+  nav a { text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--text); }
+  .lang { border: 1px solid var(--line); background: transparent; color: var(--text); font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+  .lang:hover { border-color: var(--accent); }
+  .hero { padding: 96px 0 72px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  h1 { font-size: clamp(34px, 6vw, 60px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 22px; font-weight: 800; max-width: 16ch; }
+  .lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 60ch; margin: 0 0 34px; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 10px; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); margin-left: 10px; }
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -.015em; margin: 0 0 12px; font-weight: 800; }
+  .sub { color: var(--muted); max-width: 62ch; margin: 0 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
+  .card h3 { margin: 0 0 6px; font-size: 22px; font-weight: 800; }
+  .card .kind { color: var(--accent); font-size: 13px; font-weight: 700; margin-bottom: 14px; }
+  .card p { color: var(--muted); margin: 0 0 16px; }
+  .card ul { margin: 0; padding-left: 18px; color: var(--text); font-size: 15px; }
+  .card li { margin-bottom: 6px; }
+  .card .note { margin-top: 18px; font-size: 13px; color: var(--muted); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; }
+  .steps h4 { margin: 0 0 6px; font-size: 17px; }
+  .steps p { margin: 0; color: var(--muted); font-size: 15px; }
+  .steps .n { color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: .1em; margin-bottom: 8px; }
+  footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: 14px; }
+  footer strong { color: var(--text); }
+  footer .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  [data-en] { display: none; }
+  html[lang="en"] [data-pt] { display: none; }
+  html[lang="en"] [data-en] { display: revert; }
+  @media (max-width: 640px) { nav a { display: none; } .hero { padding: 64px 0 48px; } .btn.ghost { margin: 10px 0 0; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">N2N</a>
+    <nav>
+      <a href="#produtos"><span data-pt>Produtos</span><span data-en>Products</span></a>
+      <a href="#ia"><span data-pt>Como usamos IA</span><span data-en>How we use AI</span></a>
+      <a href="#contato"><span data-pt>Contato</span><span data-en>Contact</span></a>
+      <button class="lang" id="lang" type="button" aria-label="Mudar idioma / Switch language">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="tag"><span data-pt>Produtos de software com IA</span><span data-en>AI software products</span></span>
+    <h1><span data-pt>Software com IA para quem toca empresa de verdade.</span><span data-en>AI software for people who run real businesses.</span></h1>
+    <p class="lead">
+      <span data-pt>A N2N desenvolve e opera produtos próprios de software com inteligência artificial. Nascemos atendendo empresas de esquadrias e transformamos o que aprendemos no dia a dia delas em sistemas que organizam a gestão, o atendimento e a rotina das equipes.</span>
+      <span data-en>N2N builds and runs its own AI-powered software products. We started out serving window and door companies in Brazil, and turned what we learned from their daily operations into systems that organize management, customer service and team routines.</span>
+    </p>
+    <a class="btn" href="#produtos"><span data-pt>Conhecer os produtos</span><span data-en>See the products</span></a>
+    <a class="btn ghost" href="#contato"><span data-pt>Falar com a gente</span><span data-en>Get in touch</span></a>
+  </div>
+
+  <section id="produtos">
+    <div class="wrap">
+      <h2><span data-pt>Nossos produtos</span><span data-en>Our products</span></h2>
+      <p class="sub"><span data-pt>Dois produtos, o mesmo princípio: tirar trabalho repetitivo das costas de quem tem uma empresa para cuidar.</span><span data-en>Two products, one principle: take repetitive work off the shoulders of people who have a business to run.</span></p>
+      <div class="grid">
+        <article class="card">
+          <h3>N2N App</h3>
+          <div class="kind"><span data-pt>Gestão e atendimento para empresas de esquadrias</span><span data-en>Management and customer service for window and door companies</span></div>
+          <p>
+            <span data-pt>Um sistema de gestão que reúne em um só lugar o que a empresa precisa acompanhar: clientes, tarefas, financeiro, marketing e atendimento.</span>
+            <span data-en>A management system that brings together everything the company needs to keep track of: customers, tasks, finances, marketing and customer service.</span>
+          </p>
+          <ul>
+            <li><span data-pt>Atendimento por WhatsApp com apoio de assistente de IA</span><span data-en>WhatsApp customer service backed by an AI assistant</span></li>
+            <li><span data-pt>CRM e rastreio da origem de cada contato</span><span data-en>CRM and lead source tracking</span></li>
+            <li><span data-pt>Tarefas, equipe e financeiro</span><span data-en>Tasks, team and finances</span></li>
+            <li><span data-pt>Acompanhamento de anúncios e páginas de captação</span><span data-en>Ad performance and landing pages</span></li>
+            <li><span data-pt>Portal para o cliente acompanhar o trabalho</span><span data-en>Client portal to follow the work</span></li>
+          </ul>
+          <p class="note"><span data-pt>Em produção.</span><span data-en>In production.</span></p>
+        </article>
+        <article class="card">
+          <h3>EscalaBoa</h3>
+          <div class="kind"><span data-pt>Escala de funcionários sem complicação</span><span data-en>Staff scheduling made simple</span></div>
+          <p>
+            <span data-pt>Um aplicativo que ajuda o empresário a montar e ajustar a escala de trabalho da equipe, com foco na passagem da escala 6x1 para a 5x2 no Brasil.</span>
+            <span data-en>An app that helps business owners build and adjust their team's work schedule, focused on Brazil's move from the 6x1 schedule (six days on, one off) to 5x2.</span>
+          </p>
+          <ul>
+            <li><span data-pt>Montagem da escala da equipe</span><span data-en>Team schedule planning</span></li>
+            <li><span data-pt>Apoio na transição de 6x1 para 5x2</span><span data-en>Support for the 6x1 to 5x2 transition</span></li>
+            <li><span data-pt>Pensado para o dono do negócio, não para o departamento de RH</span><span data-en>Designed for the business owner, not the HR department</span></li>
+          </ul>
+          <p class="note"><span data-pt>Desenvolvido em sociedade com parceiros.</span><span data-en>Built in partnership with co-founders.</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ia">
+    <div class="wrap">
+      <h2><span data-pt>Como usamos IA</span><span data-en>How we use AI</span></h2>
+      <p class="sub"><span data-pt>A inteligência artificial entra onde ela poupa tempo de verdade, sempre com uma pessoa no comando.</span><span data-en>AI goes where it actually saves time, always with a person in charge.</span></p>
+      <div class="steps">
+        <div>
+          <div class="n">01</div>
+          <h4><span data-pt>No atendimento</span><span data-en>In customer service</span></h4>
+          <p><span data-pt>Uma assistente de IA ajuda a equipe a responder clientes, resumir conversas e não deixar contato sem retorno.</span><span data-en>An AI assistant helps the team reply to customers, summarize conversations and leave no contact unanswered.</span></p>
+        </div>
+        <div>
+          <div class="n">02</div>
+          <h4><span data-pt>Na gestão</span><span data-en>In management</span></h4>
+          <p><span data-pt>Modelos de linguagem leem os dados da operação e apontam o que precisa de atenção, em linguagem simples.</span><span data-en>Language models read operational data and point out what needs attention, in plain language.</span></p>
+        </div>
+        <div>
+          <div class="n">03</div>
+          <h4><span data-pt>No desenvolvimento</span><span data-en>In development</span></h4>
+          <p><span data-pt>Construímos nossos produtos com agentes de programação, o que permite a uma equipe pequena entregar e manter sistemas completos.</span><span data-en>We build our products with coding agents, which lets a small team ship and maintain complete systems.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sob-medida">
+    <div class="wrap">
+      <h2><span data-pt>Também desenvolvemos sob medida</span><span data-en>We also build custom software</span></h2>
+      <p class="sub" style="margin-bottom:0"><span data-pt>Além dos produtos próprios, criamos sites, aplicativos e sistemas com IA para empresas que precisam de algo feito para a sua operação.</span><span data-en>Besides our own products, we build websites, apps and AI-powered systems for companies that need something made for their operation.</span></p>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap cols">
+    <div>
+      <strong><span data-pt>Contato</span><span data-en>Contact</span></strong><br>
+      <a href="mailto:contato@n2nmarketing.com.br">contato@n2nmarketing.com.br</a><br>
+      <a href="https://n2nmarketing.com.br">n2nmarketing.com.br</a>
+    </div>
+    <div>
+      <strong><span data-pt>Empresa</span><span data-en>Company</span></strong><br>
+      AJ GROUP LTDA<br>
+      CNPJ 54.416.558/0001-81<br>
+      Rua Antonio Benhossi, 122, Centro<br>
+      Flórida/PR, 86780-000, Brasil
+    </div>
+    <div>
+      <span data-pt>N2N é uma marca da AJ GROUP LTDA.</span><span data-en>N2N is a brand of AJ GROUP LTDA.</span><br>
+      © 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var html = document.documentElement, btn = document.getElementById('lang');
+    function set(l) { html.lang = l === 'en' ? 'en' : 'pt-BR'; btn.textContent = l === 'en' ? 'PT' : 'EN'; }
+    var q = new URLSearchParams(location.search).get('lang');
+    var saved = null; try { saved = localStorage.getItem('lang'); } catch (e) {}
+    set(q || saved || 'pt');
+    btn.addEventListener('click', function () {
+      var next = html.lang === 'en' ? 'pt' : 'en';
+      set(next); try { localStorage.setItem('lang', next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
